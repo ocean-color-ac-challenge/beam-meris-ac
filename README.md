@@ -1,4 +1,4 @@
 beam-meris-ac
 =============
 
-MERIS atmospheric correction effects using BEAM
+MERIS atmospheric correction effects using BEAM - using SmacOp
