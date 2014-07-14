@@ -41,7 +41,12 @@
                         <groupId>org.esa.beam</groupId>
                         <artifactId>beam-pconvert</artifactId>
                         <version>5.0</version>
-                </dependency>	
+                </dependency>
+                <dependency>
+                        <groupId>org.esa.beam</groupId>
+                        <artifactId>beam-meris-smac</artifactId>
+                        <version>5.0</version>
+                </dependency>
 		<dependency>
 			<groupId>ncsa.hdf</groupId>
 			<artifactId>lib-hdf</artifactId>
