@@ -57,22 +57,24 @@ do
         <file>$retrieved</file>
       </parameters>
   </node>
-  <node id="2">
-    <operator>SmacOp</operator>
-    <sources>
-      <source>1</source>
-    </sources>
-    <parameters>
-      <targetBands>
-        <targetBand>
-          <name>out</name>
-          <expression>$expression</expression>
-          <description>Processed Band</description>
-          <type>float32</type>
-        </targetBand>
-      </targetBands>
-    </parameters>
-  </node>
+    <node id="someNodeId">
+      <operator>SmacOp</operator>
+      <sources>
+        <source>${source}</source>
+      </sources>
+      <parameters>
+        <tauAero550>float</tauAero550>
+        <uH2o>float</uH2o>
+        <uO3>float</uO3>
+        <surfPress>float</surfPress>
+        <useMerisADS>boolean</useMerisADS>
+        <aerosolType>aEROSOL_TYPE</aerosolType>
+        <invalidPixel>float</invalidPixel>
+        <maskExpression>string</maskExpression>
+        <maskExpressionForward>string</maskExpressionForward>
+        <bandNames>string,string,string,...</bandNames>
+      </parameters>
+    </node>
   <node id="write">
     <operator>Write</operator>
     <sources>

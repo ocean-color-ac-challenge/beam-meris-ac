@@ -13,7 +13,7 @@
         <property id="mapred.task.timeout">9900000000000</property>
       </defaultJobconf>
     </jobTemplate>
-	
+</jobTemplates>	
  <workflow id="beam_atcorr" title="BEAM Atmos Correction" abstract="This example runs the SmacOp atmospheric correction">						
     <workflowVersion>1.0</workflowVersion>
     <node id="node_smacop">				
