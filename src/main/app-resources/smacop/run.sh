@@ -56,8 +56,9 @@ do
   [ "$?" == "0" -a -e "$retrieved" ] || exit $ERR_NOINPUT
   
   # report activity
-  ciop-log "INFO" "Retrieved `basename $retrieved`, moving on to expression"
-  outputname=`basename $retrieved`
+  ciop-log "INFO" "Retrieved `basename $retrieved`, moving on to smac operator"
+	
+outputname=`basename $retrieved`
   
   $_CIOP_APPLICATION_PATH/shared/bin/gpt.sh SmacOp \
     -SsourceProduct=$retrieved \
@@ -76,10 +77,10 @@ do
   res=$?
   [ $res != 0 ] && exit $ERR_BEAM
   
-  tar -C $OUTPUTDIR -czf $TMPDIR/$outputname.tgz $outputname.dim $outputname.data
+  tar -C $OUTPUTDIR -cvzf $TMPDIR/$outputname.tgz $outputname.dim $outputname.data
   
   ciop-log "INFO" "Publishing $outputname.tgz"
-  ciop-publish $TMPDIR/$outputname.tgz
+  ciop-publish -m $TMPDIR/$outputname.tgz
   
   # cleanup
   rm -fr $retrieved $OUTPUTDIR/$outputname.d* $TMPDIR/$outputname.tgz 
