@@ -6,8 +6,8 @@
     <jobTemplate id="SmacOp">
       <streamingExecutable>/application/smacop/run.sh</streamingExecutable>
       <defaultParameters>						
-        <parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-03-24</parameter>
-        <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-03-25</parameter>
+        <parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-04-05</parameter>
+        <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-06</parameter>
         <parameter id="aerosolType" title="aerosolType" abstract="Aerosol type">CONTINENTAL</parameter>
         <parameter id="bandNames" title="bandNames" abstract="Bands to process">radiance_2,radiance_3</parameter>
         <parameter id="invalidPixel" title="invalidPixel" abstract="">0.0</parameter>

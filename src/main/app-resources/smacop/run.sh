@@ -28,6 +28,12 @@ trap cleanExit EXIT
 # create the output folder to store the output products
 mkdir -p $TMPDIR/output
 export OUTPUTDIR=$TMPDIR/output
+format="`ciop-getparam format`"
+
+[ "$format" != "BEAM-DIMAP" ] && [ "$format" != "GeoTIFF" ] && exit $ERR_FORMAT
+
+aerosolType=`ciop-getparam aerosolType`
+
 
 # loop and process all MERIS products
 while read inputfile 
