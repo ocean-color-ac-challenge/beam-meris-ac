@@ -6,7 +6,7 @@
 	<groupId>com.terradue.ciop.app</groupId>
 	<artifactId>beam-java-app</artifactId>
 	<packaging>rpm</packaging>
-	<description>BEAM Java FLH Processing</description>
+	<description>BEAM Atmospheric Correction Processing</description>
 	<version>0.1</version>
 
 	<scm>
