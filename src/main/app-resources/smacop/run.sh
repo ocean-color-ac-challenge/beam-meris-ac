@@ -45,53 +45,23 @@ do
   ciop-log "INFO" "Retrieved `basename $retrieved`, moving on to expression"
   outputname=`basename $retrieved`
   
-  BEAM_REQUEST=$TMPDIR/beam_request.xml
-
-  cat << EOF > $BEAM_REQUEST
-<?xml version="1.0" encoding="UTF-8"?>
-<graph>
-  <version>1.0</version>
-  <node id="1">
-    <operator>Read</operator>
-      <parameters>
-        <file>$retrieved</file>
-      </parameters>
-  </node>
-    <node id="someNodeId">
-      <operator>SmacOp</operator>
-      <sources>
-        <source>${source}</source>
-      </sources>
-      <parameters>
-        <tauAero550>float</tauAero550>
-        <uH2o>float</uH2o>
-        <uO3>float</uO3>
-        <surfPress>float</surfPress>
-        <useMerisADS>boolean</useMerisADS>
-        <aerosolType>aEROSOL_TYPE</aerosolType>
-        <invalidPixel>float</invalidPixel>
-        <maskExpression>string</maskExpression>
-        <maskExpressionForward>string</maskExpressionForward>
-        <bandNames>string,string,string,...</bandNames>
-      </parameters>
-    </node>
-  <node id="write">
-    <operator>Write</operator>
-    <sources>
-       <source>2</source>
-    </sources>
-    <parameters>
-      <file>$OUTPUTDIR/$outputname</file>
-   </parameters>
-  </node>
-</graph>
-EOF
-   
-  $_CIOP_APPLICATION_PATH/shared/bin/gpt.sh $BEAM_REQUEST 
+  $_CIOP_APPLICATION_PATH/shared/bin/gpt.sh SmacOp /
+    -SsourceProduct=$retrieved /
+    -f $format /
+    -t $OUTPUTDIR/$outputname /
+    -PaerosolType=<aEROSOL_TYPE> /
+    -PbandNames=<string,string,string,...> /
+    -PinvalidPixel=<float> /
+    -PmaskExpression=<string> /
+    -PmaskExpressionForward=<string> /
+    -PsurfPress=<float> /
+    -PtauAero550=<float> /
+    -PuH2o=<float> /
+    -PuO3=<float> /
+    -PuseMerisADS=<boolean> /
+  
   res=$?
   [ $res != 0 ] && exit $ERR_BEAM
-  
-  outputname=`echo $(basename $retrieved)`
   
   tar -C $OUTPUTDIR -czf $TMPDIR/$outputname.tgz $outputname.dim $outputname.data
   
