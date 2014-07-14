@@ -32,7 +32,15 @@ format="`ciop-getparam format`"
 
 [ "$format" != "BEAM-DIMAP" ] && [ "$format" != "GeoTIFF" ] && exit $ERR_FORMAT
 
-aerosolType=`ciop-getparam aerosolType`
+aerosolType="`ciop-getparam aerosolType`"
+bandNames="`ciop-getparam bandNames`"
+invalidPixel="`ciop-getparam invalidPixel`"
+maskExpression="`ciop-getparam maskExpression`"
+surfPress="`ciop-getparam surfPress`"
+tauAero550="`ciop-getparam tauAero550`"
+uH2o="`ciop-getparam uH2o`"
+uO3="`ciop-getparam uO3`"
+useMerisADS="`ciop-getparam useMerisADS`"
 
 
 # loop and process all MERIS products
@@ -51,20 +59,19 @@ do
   ciop-log "INFO" "Retrieved `basename $retrieved`, moving on to expression"
   outputname=`basename $retrieved`
   
-  $_CIOP_APPLICATION_PATH/shared/bin/gpt.sh SmacOp /
-    -SsourceProduct=$retrieved /
-    -f $format /
-    -t $OUTPUTDIR/$outputname /
-    -PaerosolType=<aEROSOL_TYPE> /
-    -PbandNames=<string,string,string,...> /
-    -PinvalidPixel=<float> /
-    -PmaskExpression=<string> /
-    -PmaskExpressionForward=<string> /
-    -PsurfPress=<float> /
-    -PtauAero550=<float> /
-    -PuH2o=<float> /
-    -PuO3=<float> /
-    -PuseMerisADS=<boolean> /
+  $_CIOP_APPLICATION_PATH/shared/bin/gpt.sh SmacOp \
+    -SsourceProduct=$retrieved \
+    -f $format \
+    -t $OUTPUTDIR/$outputname \
+    -PaerosolType=$aerosolType \
+    -PbandNames="$bandNames" \
+    -PinvalidPixel=$invalidPixel \
+    -PmaskExpression="$maskExpression" \
+    -PsurfPress=$surfPress \
+    -PtauAero550=$tauAero550 \
+    -PuH2o=$uH2o \
+    -PuO3=$uO3 \
+    -PuseMerisADS=$useMerisADS 
   
   res=$?
   [ $res != 0 ] && exit $ERR_BEAM
