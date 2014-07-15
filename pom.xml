@@ -4,10 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.terradue.ciop.app</groupId>
-	<artifactId>beam-java-app</artifactId>
+	<artifactId>beam-meris-ac</artifactId>
+	<name>beam-meris-ac</name>
 	<packaging>rpm</packaging>
 	<description>BEAM Atmospheric Correction Processing</description>
-	<version>0.1</version>
+	<version>0.21-SNAPSHOT</version>
 
 	<scm>
 		<connection>scm:git:git@github.com:ocean-color-ac-challenge/beam-meris-ac.git</connection>
@@ -343,8 +344,8 @@
 						<configuration>
 							<releaseName>v${project.version}</releaseName>
 							<tag>v${project.version}</tag>
-							<artifact>${project.build.directory}/rpm/${project.artifactId}/RPMS/noarch/${project.artifactId}-${project.version}-ciop.noarch.rpm</artifact>
-							<overwriteArtifact>true</overwriteArtifact>
+<artifact>${project.build.directory}/rpm/${project.artifactId}/RPMS/noarch/${project.artifactId}-${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-ciop.noarch.rpm</artifact>	
+<overwriteArtifact>true</overwriteArtifact>
 						</configuration>
 					</execution>
 				</executions>
