@@ -61,6 +61,6 @@ Click on the _Invoke_ tab
 
 Below the "Process List" click on _BEAM Atmos Correction_
 
-Fill the parameters and click submit:
+Fill the parameters and click submit. 
 
 
