@@ -9,9 +9,9 @@
         <parameter id="format">BEAM-DIMAP</parameter>
 	<parameter id="startdate" title="Start date" abstract="Start date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:start">2012-04-05</parameter>
         <parameter id="enddate" title="End date" abstract="End date of the TOI. Used as queryable for the MERIS Level 1 catalogue" scope="runtime" type="opensearch" target="time:end">2012-04-06</parameter>
-        <parameter id="aerosolType" title="aerosolType" abstract="Aerosol type">CONTINENTAL</parameter>
-        <parameter id="bandNames" title="bandNames" abstract="Bands to process">radiance_2,radiance_3</parameter>
-        <parameter id="invalidPixel" title="invalidPixel" abstract="">0.0</parameter>
+        <parameter id="aerosolType" title="aerosolType" abstract="Aerosol type: CONTINENTAL or DESERT" scope="runtime">CONTINENTAL</parameter>
+        <parameter id="bandNames" title="bandNames" abstract="Bands to process as a comma separated list (e.g. radiance_2,radiance_3)">radiance_2,radiance_3</parameter>
+        <parameter id="invalidPixel" title="invalidPixel" abstract="Default reflectance for invalid pixel (e.g. 0.0)">0.0</parameter>
         <parameter id="maskExpression" title="maskExpression" abstract="Mask expression for the whole MERIS view"></parameter>
         <parameter id="surfPress" title="surfPress" abstract="Surface pressure">1013.0</parameter>
         <parameter id="tauAero550" title="tauAero550" abstract="Aerosol optical depth">0.2</parameter>
